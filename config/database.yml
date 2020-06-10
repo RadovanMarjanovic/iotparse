@@ -31,3 +31,11 @@ development:
   pool: 5
   username: iotparse
   password: iotparse
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: iotparse_test
+  pool: 5
+  username: iotparse
+  password: iotparse
