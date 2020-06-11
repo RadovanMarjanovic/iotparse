@@ -47,3 +47,7 @@ gem 'jwt'
 gem 'bcrypt', '~> 3.1.7'
 # PostgreSQL
 gem 'pg'
+
+group :test do
+  gem 'database_cleaner-active_record'
+end

@@ -12,6 +12,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
+    check_user
     if current_user.update_attributes(user_params)
       render json: current_user, status: :ok
     else
@@ -21,6 +22,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
+
+  def check_user
+    @user = User.find_by_id(params[:id])
+    raise "Unauthorized user" unless @user == current_user
+  end
 
   def user_params
     params.require(:user).permit( :first_name, :last_name, :email, :password, :password_confirmation )
